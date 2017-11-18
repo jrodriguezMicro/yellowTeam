@@ -23,7 +23,8 @@
     spinner: document.querySelector('.loader'),
     cardTemplate: document.querySelector('.cardTemplate'),
     container: document.querySelector('.main'),
-    addDialog: document.querySelector('.dialog-container'),
+    addDialog: document.getElementById('addDialog'),
+    inscriDialog: document.getElementById('inscriDialog'),
     daysOfWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   };
 
@@ -42,6 +43,11 @@
   document.getElementById('butAdd').addEventListener('click', function() {
     // Open/show the add new city dialog
     app.toggleAddDialog(true);
+  });
+
+  document.getElementById('butInscription').addEventListener('click', function() {
+    // Open/show the add new city dialog
+    app.toggleInscriDialog(true);
   });
 
   document.getElementById('butAddCity').addEventListener('click', function() {
@@ -71,12 +77,19 @@
    *
    ****************************************************************************/
 
-  // Toggles the visibility of the add new city dialog.
+  // Toggles the visibility of the dialog.
   app.toggleAddDialog = function(visible) {
     if (visible) {
       app.addDialog.classList.add('dialog-container--visible');
     } else {
       app.addDialog.classList.remove('dialog-container--visible');
+    }
+  };
+  app.toggleInscriDialog = function(visible) {
+    if (visible) {
+      app.inscriDialog.classList.add('dialog-container--visible');
+    } else {
+      app.inscriDialog.classList.remove('dialog-container--visible');
     }
   };
 
@@ -327,6 +340,15 @@
       }
     }
   };
+  /*
+  * Fake User, simuler une gestion des utilisateurs
+  */
+  var fakeUser = {
+    log: false,
+    email: '',
+    fullName: '',
+    codePost: ''
+  }
   // TODO uncomment line below to test app with fake data
   // app.updateForecastCard(initialWeatherForecast);
 
