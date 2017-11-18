@@ -195,6 +195,7 @@ body {
   width: 56px;
   height: 56px;
   border-radius: 50%;
+  border: none;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
   color: #FFFFFF;
   position: fixed;
@@ -206,8 +207,10 @@ body {
   backface-visibility: hidden;
   justify-content: center;
   display: flex;
-  background: #E53357;
+  background: url(/images/ic_add_white_24px.svg) center center no-repeat #E53357;
   padding: 5%;
+  z-index: 3;
+  text-indent: -4000px;
 }
 
 .dialog-container {
