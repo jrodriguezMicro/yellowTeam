@@ -45,11 +45,6 @@
     app.toggleAddDialog(true);
   });
 
-  document.getElementById('butInscription').addEventListener('click', function() {
-    // Open/show the add new city dialog
-    app.toggleInscriDialog(true);
-  });
-
   document.getElementById('butAddCity').addEventListener('click', function() {
     // Add the newly selected city
     var select = document.getElementById('selectCityToAdd');
@@ -70,6 +65,20 @@
     app.toggleAddDialog(false);
   });
 
+
+  document.getElementById('butInscription').addEventListener('click', function() {
+    // Open/show the inscription dialog
+    app.toggleInscriDialog(true);
+  });
+
+  document.getElementById('butInscri').addEventListener('click', function() {
+    // TODO
+    app.toggleInscriDialog(false);
+  });
+
+  document.getElementById('butInscriCancel').addEventListener('click', function() {
+    app.toggleInscriDialog(false);
+  });
 
   /*****************************************************************************
    *
