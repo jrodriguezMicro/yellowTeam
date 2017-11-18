@@ -22,7 +22,6 @@
     selectedCities: [],
     spinner: document.querySelector('.loader'),
     cardTemplate: document.querySelector('.cardTemplate'),
-    lorem: document.getElementById('lorem'),
     container: document.querySelector('.main'),
     daysOfWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   };
@@ -34,16 +33,8 @@
    *
    ****************************************************************************/
 
-  document.getElementById('butRefresh').addEventListener('click', function() {
-    // Refresh all of the forecasts
-    if(lorem.hasClass('hideMe')){
-      app.resetAllPage();
-      lorem.removeClass('hideMe').addClass('showMe');;
-      //cardTemplate.setAttribute('hidden', true);
-    }else{
-      app.resetAllPage();
-      //cardTemplate.removeAttribute('hidden');
-    }
+  document.getElementById('butRefresh').addEventListener('click', function(){
+    app.showMe('#home');
   });
 
 
@@ -55,8 +46,19 @@
 
    app.resetAllPage = function(){
      var container = $('.showMe');
-     console.log(container);
      container.removeClass('showMe').addClass('hideMe');
+   }
+   app.showMe = function(id){
+     // Refresh all of the forecasts
+     var toDisplay = $(id);
+     if(toDisplay[0].classList.contains('hideMe')){
+       app.resetAllPage();
+       toDisplay.removeClass('hideMe').addClass('showMe');;
+       //cardTemplate.setAttribute('hidden', true);
+     }else{
+       app.resetAllPage();
+       //cardTemplate.removeAttribute('hidden');
+     }
    }
 
     if (app.isLoading) {
