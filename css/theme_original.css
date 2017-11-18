@@ -102,10 +102,13 @@ body {
     object-fit: contain;
   }
   .header .headerButton {
-
-    margin-top: 5px;
+    border: none;
+    background: transparent;
+    margin-top: 6px;
     overflow: hidden;
     opacity: 1;
+    font-size: 1em;
+    color: white;
     -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
     transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
     cursor: pointer; }
@@ -187,6 +190,25 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; }
+
+.btnAddChallenge{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  color: #FFFFFF;
+  position: fixed;
+  cursor: pointer;
+  bottom: 0;
+  right: 0;
+  margin:25px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  justify-content: center;
+  display: flex;
+  background: #E53357;
+  padding: 5%;
+}
 
 .dialog-container {
   background: rgba(0, 0, 0, 0.57);
