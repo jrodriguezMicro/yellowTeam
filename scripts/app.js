@@ -37,7 +37,14 @@
     app.showMe('#home');
   });
 
+  document.querySelector('.temp').addEventListener('click', function(){
+    console.log('coucou');
+    app.showMe('#defiDetail');
+  });
 
+  document.getElementById('retourDetail').addEventListener('click', function(){
+    app.showMe('#home');
+  });
   /*****************************************************************************
    *
    * Methods to update/refresh the UI

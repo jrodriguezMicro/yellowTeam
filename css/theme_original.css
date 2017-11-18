@@ -250,6 +250,27 @@ input[type=search]:focus {
   text-indent: -4000px;
 }
 
+.btnRetour{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  color: #FFFFFF;
+  position: fixed;
+  cursor: pointer;
+  bottom: 80%;
+  right: 80%;
+  margin:25px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  justify-content: center;
+  display: flex;
+  background: url(/images/ic_refresh_white_24px.svg) center center no-repeat #000000;
+  padding: 5%;
+  z-index: 3;
+  text-indent: -4000px;
+}
 .dialog-container {
   background: rgba(0, 0, 0, 0.57);
   position: fixed;
