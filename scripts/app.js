@@ -104,6 +104,32 @@
     app.saveSelectedCities();
   }
   */
+  var pushButton = document.querySelector('.js-push-button');
+  pushButton.addEventListener('click', subscribe);
+
+  function subscribe() {
+    pushButton.disabled = true;
+
+    navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
+      serviceWorkerRegistration.pushManager.subscribe({ userVisibleOnly: true })
+        .then(function(subscription) {
+          // The subscription was successful
+          isPushEnabled = true;
+          pushButton.textContent = 'Disable Push Messages';
+          pushButton.disabled = false;
+        })
+        .catch(function(e) {
+          if(Notification.permission === 'denied') {
+            console.warn('Permission for Notifications was denied');
+            pushButton.disabled = true;
+          } else {
+            console.error('Unable to subscribe to push.', e);
+            pushButton.disabled = false;
+            pushButton.textContent = 'Enable Push Messages';
+          }
+        });
+    });
+  }
 
   // TODO add service worker code here
   if ('serviceWorker' in navigator) {
