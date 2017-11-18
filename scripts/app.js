@@ -22,6 +22,7 @@
     selectedCities: [],
     spinner: document.querySelector('.loader'),
     cardTemplate: document.querySelector('.cardTemplate'),
+    lorem: document.getElementById('.lorem'),
     container: document.querySelector('.main'),
     addDialog: document.getElementById('addDialog'),
     inscriDialog: document.getElementById('inscriDialog'),
@@ -38,6 +39,13 @@
   document.getElementById('butRefresh').addEventListener('click', function() {
     // Refresh all of the forecasts
     app.updateForecasts();
+    if(lorem.getAttribute('hidden')){
+      lorem.removeAttribute('hidden');
+      //cardTemplate.setAttribute('hidden', true);
+    }else{
+      lorem.setAttribute('hidden', true);
+      //cardTemplate.removeAttribute('hidden');
+    }
   });
 
   document.getElementById('butAdd').addEventListener('click', function() {
