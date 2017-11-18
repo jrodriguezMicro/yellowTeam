@@ -54,7 +54,7 @@
   <main class="main">
 
 
-    <div id="lorem" class="container" hidden="true">
+    <div id="lorem" class="container hideMe">
 
       <div class="jumbotron" style="margin-top: 30px;">
         <h1>Lorem ipsum header</h1>
@@ -91,17 +91,30 @@
       </footer>
     </div>
 
-    <div id="home" class="container"></div>
-    <div id="defiDetail" class="container" hidden="true"></div>
-    <div id="defiCreate" class="container" hidden="true"></div>
-    <div id="welcome" class="container" hidden="true"></div>
-    <div id="inscription" class="container" hidden="true"></div>
-    <div id="login" class="container" hidden="true"></div>
-    <div id="profil" class="container" hidden="true"></div>
-    <div id="modifUser" class="container" hidden="true"></div>
-    <div id="achiv" class="container" hidden="true"></div>
-    <div id="classement" class="container" hidden="true"></div>
-    <div id="carto" class="container" hidden="true"></div>
+    <div id="home" class="container showMe">
+      <div class="searchArea" style="margin-top: 10px;">
+         <input type="search" name="search" placeholder="Search..">
+         <button class="icon"><span class="glyphicon glyphicon-search" aria-hidden="true"></button>
+      </div>
+
+      <h3 style="font-weight:bold;">Défis à la une</h3>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+      </div>
+
+    </div>
+
+    <div id="defiDetail" class="container hideMe"></div>
+    <div id="defiCreate" class="container hideMe"></div>
+    <div id="welcome" class="container hideMe"></div>
+    <div id="inscription" class="container hideMe"></div>
+    <div id="login" class="container hideMe"></div>
+    <div id="profil" class="container hideMe"></div>
+    <div id="modifUser" class="container hideMe"></div>
+    <div id="achiv" class="container hideMe"></div>
+    <div id="classement" class="container hideMe"></div>
+    <div id="carto" class="container hideMe"></div>
 
   </main>
 
