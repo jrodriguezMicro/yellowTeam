@@ -157,12 +157,20 @@ input[type=search]:focus {
   width: 13%;
   height: 30px;
 }
-
 .hideMe{
   display: none;
 }
 .showMe{
   display: block;
+}
+.listDefi .vignette{
+  margin-bottom: 30px;
+}
+.listDefi .vignette img{
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+
 }
 
 /* EOF CSS YELLOW TEAM */
