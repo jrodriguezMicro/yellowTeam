@@ -102,22 +102,13 @@ body {
     object-fit: contain;
   }
   .header .headerButton {
-    width: 24px;
-    height: 24px;
-    margin-right: 16px;
-    margin-top: 13px;
-    text-indent: -30000px;
+
+    margin-top: 5px;
     overflow: hidden;
-    opacity: 0.54;
+    opacity: 1;
     -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
     transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
-    border: none;
-    outline: none;
     cursor: pointer; }
-  .header #butRefresh {
-    background: url(/images/ic_refresh_white_24px.svg) center center no-repeat; }
-  .header #butAdd {
-    background: url(/images/ic_add_white_24px.svg) center center no-repeat; }
 
 .header__title {
   font-weight: 400;
