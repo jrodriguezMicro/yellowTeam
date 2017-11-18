@@ -23,7 +23,7 @@
     app.showMe('#defiDetail');
   });
 
-  document.getElementById('retourDetail').addEventListener('click', function(){
+  $('.retourDetail').on('click', function(){
     app.showMe('#home');
   });
 
@@ -35,6 +35,9 @@
     app.showMe('#profil');
   });
   document.getElementById('butHome').addEventListener('click', function(){
+    app.showMe('#home');
+  });
+  document.getElementById('mainLogo').addEventListener('click', function(){
     app.showMe('#home');
   });
   /*****************************************************************************

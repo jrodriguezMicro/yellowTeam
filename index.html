@@ -39,7 +39,7 @@
 
   <header class="header">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 logo" style="text-align:left;">
-      <img src="images/LOGO_DIFFUZ_JAUNE.svg" alt="Revenir à la page d’accueil" />
+      <img id="mainLogo" src="images/LOGO_DIFFUZ_JAUNE.svg" alt="Revenir à la page d’accueil" />
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="text-align:right;">
       <button id="butAchiv" type="button" class="btn btn-default headerButton" aria-label="Refresh Right Align" title="Achivement">
@@ -65,7 +65,7 @@
         <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up</a></p>
       </div>
 
-      <div class="row marketing">
+      <div class="row">
         <div class="col-lg-6">
           <h4>Subheading</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
@@ -96,7 +96,7 @@
 
     <div id="home" class="container showMe">
       <div class="searchArea" style="margin-top: 10px;">
-         <input type="search" name="search" placeholder="Searchs..">
+         <input type="search" name="search" placeholder="Search..">
          <button class="icon"><span class="glyphicon glyphicon-search" aria-hidden="true"></button>
       </div>
 
@@ -122,7 +122,7 @@
     </div>
 
     <div id="defiDetail" class="container hideMe">
-      <button id="retourDetail" tabindex="2" class="btnRetour"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>
+      <button tabindex="2" class="btnRetour retourDetail"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>
       <div class="row listDefi">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding:0; margin-top:-5px;">
           <img src="images/defi01_img.jpg" alt="Defi 01" style="width:100%; height:auto;"/>
@@ -139,13 +139,36 @@
       <div class="google-maps">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d122647.21036523583!2d-1.5217548210245526!3d47.2137241909526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1511036769839" width="360" height="300" frameborder="0" style="border:0"></iframe>
       </div>
-      <!-- TODO Map -->
-      <p>4 participants :</p>
-      <!-- TODO list user -->
+      <div style="margin-top: 15px; margin-bottom: 10px;">
+        <h4>4 participants</h4>
+        <img src="images/participants.png" alt="" style="width:100%; height:auto;"/>
+      </div>
     </div>
+
     <div id="defiCreate" class="container hideMe">
-      Création d'un nouveau défi !
+      <button tabindex="2" class="btnRetour retourDetail"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>
+      <div class="row listDefi">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding:0; margin-top:-5px;">
+          <img src="images/defi01_img.jpg" alt="Defi 01" style="width:100%; height:auto;"/>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h3 style="font-weight:bold;">Plus on est de fous, plus on (t)rie !</h3>
+        </div>
+      </div>
+      <p>Desciption du défi toussa toussa...</br>
+      bref tout ce dont l'utilisateur a besoin</p>
+
+      <p><strong>17/11/2017 de 13:00 à 18:00</strong> <br/>
+        Entre une heure et 1/2 journée</p>
+      <div class="google-maps">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d122647.21036523583!2d-1.5217548210245526!3d47.2137241909526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1511036769839" width="360" height="300" frameborder="0" style="border:0"></iframe>
+      </div>
+      <div style="margin-top: 15px; margin-bottom: 10px;">
+        <h4>4 participants</h4>
+        <img src="images/participants.png" alt="" style="width:100%; height:auto;"/>
+      </div>
     </div>
+
     <div id="welcome" class="container hideMe"></div>
     <div id="inscription" class="container hideMe"></div>
     <div id="login" class="container hideMe"></div>
