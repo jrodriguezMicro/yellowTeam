@@ -171,7 +171,7 @@ input[type=search]:focus {
   width: 100%;
   height: auto;
   border-radius: 5px;
-  box-shadow: 1px 1px 5px 0 #000;
+  box-shadow: 1px 1px 5px 0 #999;
 
 }
 .google-maps {
@@ -303,10 +303,12 @@ input[type=search]:focus {
   backface-visibility: hidden;
   justify-content: center;
   display: flex;
-  background: center center no-repeat #E53357;
-  padding: 5%;
+  background: #E53357;
   z-index: 3;
-  font-size: large;
+  font-size: 1.7em;
+}
+.btnOkDefi span{
+  padding-bottom: 2px;
 }
 
 .btnRetour{
