@@ -110,37 +110,148 @@
     app.saveSelectedCities();
   }
   */
-  var pushButton = document.querySelector('.js-push-button');
-  pushButton.addEventListener('click', subscribe);
 
-  function subscribe() {
-    pushButton.disabled = true;
-
-    navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
-      serviceWorkerRegistration.pushManager.subscribe({ userVisibleOnly: true })
-        .then(function(subscription) {
-          // The subscription was successful
-          isPushEnabled = true;
-          pushButton.textContent = 'Disable Push Messages';
-          pushButton.disabled = false;
-        })
-        .catch(function(e) {
-          if(Notification.permission === 'denied') {
-            console.warn('Permission for Notifications was denied');
-            pushButton.disabled = true;
-          } else {
-            console.error('Unable to subscribe to push.', e);
-            pushButton.disabled = false;
-            pushButton.textContent = 'Enable Push Messages';
-          }
-        });
-    });
-  }
 
   // TODO add service worker code here
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
              .register('./service-worker.js')
-             .then(function() { console.log('Service Worker Registered'); });
+             .then(function(swReg) {
+               console.log('Service Worker Registered');
+              swRegistration = swReg;
+              initializeUI();
+           }).catch(function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+              });
+  }else{
+    console.warn('Push messaging is not supported');
+    pushButton.textContent = 'Push Not Supported';
   }
+
+  // TEST notification from google tuto
+  const applicationServerPublicKey = 'BJrDVriFkOU0VJCifN9e58ASorN_EgjT5bTJ7hKq8afrqRrW3tDuUDDMCTgbmyLp0Cyqus0CdmPk87cuF_OPss8';
+
+const pushButton = document.querySelector('.js-push-btn');
+
+let isSubscribed = false;
+let swRegistration = null;
+
+function urlB64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding)
+    .replace(/\-/g, '+')
+    .replace(/_/g, '/');
+
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
+}
+
+function updateBtn() {
+  if (Notification.permission === 'denied') {
+    pushButton.textContent = 'Push Messaging Blocked.';
+    pushButton.disabled = true;
+    // updateSubscriptionOnServer(null);
+    return;
+  }
+
+  if (isSubscribed) {
+    pushButton.textContent = 'Disable Push Messaging';
+  } else {
+    pushButton.textContent = 'Enable Push Messaging';
+  }
+
+  pushButton.disabled = false;
+}
+
+function subscribeUser() {
+  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+  console.log('test1');
+  console.log(swRegistration.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: applicationServerKey
+  }));
+  swRegistration.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: applicationServerKey
+  })
+  .then(function(subscription) {
+    console.log('User is subscribed');
+
+    // updateSubscriptionOnServer(subscription);
+
+    isSubscribed = true;
+
+    updateBtn();
+  })
+  .catch(function(err) {
+    console.log('Failed to subscribe the user: ', err);
+    updateBtn();
+  });
+}
+
+function initializeUI() {
+  pushButton.addEventListener('click', function() {
+    pushButton.disabled = true;
+    if (isSubscribed) {
+      // TODO: Unsubscribe user
+    } else {
+      subscribeUser();
+    }
+  });
+
+  // Set the initial subscription value
+  swRegistration.pushManager.getSubscription()
+  .then(function(subscription) {
+    isSubscribed = !(subscription === null);
+
+    // updateSubscriptionOnServer(subscription);
+
+    if (isSubscribed) {
+      console.log('User IS subscribed.');
+    } else {
+      console.log('User is NOT subscribed.');
+    }
+
+    updateBtn();
+  });
+}
+
+  // var pushButton = document.querySelector('.js-push-button');
+  // pushButton.addEventListener('click', subscribe);
+  //
+  // function subscribe() {
+  //   console.log('test1');
+  //   pushButton.disabled = true;
+  //
+  //   navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
+  //     console.log('test1.2');
+  //     console.log(serviceWorkerRegistration.pushManager.subscribe);
+  //     serviceWorkerRegistration.pushManager.subscribe({ userVisibleOnly: true })
+  //       .then(function(subscription) {
+  //         // The subscription was successful
+  //         console.log('test2');
+  //         isPushEnabled = true;
+  //         pushButton.textContent = 'Disable Push Messages';
+  //         pushButton.disabled = false;
+  //       })
+  //       .catch(function(e) {
+  //         console.log('test3');
+  //         if(Notification.permission === 'denied') {
+  //           console.warn('Permission for Notifications was denied');
+  //           pushButton.disabled = true;
+  //         } else {
+  //           console.error('Unable to subscribe to push.', e);
+  //           pushButton.disabled = false;
+  //           pushButton.textContent = 'Enable Push Messages';
+  //         }
+  //       });
+  //   });
+  // }
+
 })();
