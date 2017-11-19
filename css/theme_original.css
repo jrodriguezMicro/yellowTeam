@@ -62,8 +62,8 @@ body {
 .header {
   width: 100%;
   height: 56px;
-  color: #FFF;
-  background: #E53357;
+  color: #E53357;
+  background: #FFFFFF;
   position: fixed;
   font-size: 20px;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
@@ -104,12 +104,13 @@ body {
   }
   .header .headerButton {
     border: none;
-    background: transparent;
+    background: #e53357;
     margin-top: 6px;
     overflow: hidden;
     opacity: 1;
     font-size: 1em;
     color: white;
+    border-radius: 50%;
     -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
     transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
     cursor: pointer; }
@@ -203,7 +204,7 @@ input[type=search]:focus {
   backface-visibility: hidden;
   justify-content: center;
   display: flex;
-  background: url(/images/bg_btn_Gmaps.png) center left no-repeat #fecd1a;
+  background: url(/images/bg_btn_Gmaps.png) center left no-repeat #E53357;
   padding: 5%;
   z-index: 3;
   text-indent: -4000px;
@@ -288,9 +289,9 @@ input[type=search]:focus {
 }
 
 .btnOkDefi{
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
+  width: 120px;
+  height: 30px;
+  border-radius: 5px;
   border: none;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
   color: #FFFFFF;
@@ -305,7 +306,8 @@ input[type=search]:focus {
   display: flex;
   background: #E53357;
   z-index: 3;
-  font-size: 1.7em;
+  font-size: 0.9em;
+  font-weight: bold;
 }
 .btnOkDefi span{
   padding-bottom: 2px;

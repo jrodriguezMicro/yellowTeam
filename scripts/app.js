@@ -136,35 +136,6 @@ $(".cartoSwap").on("touchstart", function(event){
     codePost: ''
   }
 
-  /************************************************************************
-   *
-   * Code required to start the app
-   *
-   * NOTE: To simplify this codelab, we've used localStorage.
-   *   localStorage is a synchronous API and has serious performance
-   *   implications. It should not be used in production applications!
-   *   Instead, check out IDB (https://www.npmjs.com/package/idb) or
-   *   SimpleDB (https://gist.github.com/inexorabletash/c8069c042b734519680c)
-   ************************************************************************/
-
-  // TODO add startup code here
-  /*
-  app.selectedCities = localStorage.selectedCities;
-  if (app.selectedCities) {
-    app.selectedCities = JSON.parse(app.selectedCities);
-    app.selectedCities.forEach(function(city) {
-      app.getForecast(city.key, city.label);
-    });
-  } else {
-    app.updateForecastCard(initialWeatherForecast);
-    app.selectedCities = [
-      {key: initialWeatherForecast.key, label: initialWeatherForecast.label}
-    ];
-    app.saveSelectedCities();
-  }
-  */
-
-
   // TODO add service worker code here
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
@@ -209,7 +180,6 @@ function updateBtn() {
   if (Notification.permission === 'denied') {
     pushButton.textContent = 'Push Messaging Blocked.';
     pushButton.disabled = true;
-    // updateSubscriptionOnServer(null);
     return;
   }
 
@@ -236,8 +206,6 @@ function subscribeUser() {
   .then(function(subscription) {
     console.log('User is subscribed');
 
-    // updateSubscriptionOnServer(subscription);
-
     isSubscribed = true;
 
     updateBtn();
@@ -263,8 +231,6 @@ function initializeUI() {
   .then(function(subscription) {
     isSubscribed = !(subscription === null);
 
-    // updateSubscriptionOnServer(subscription);
-
     if (isSubscribed) {
       console.log('User IS subscribed.');
     } else {
@@ -275,36 +241,5 @@ function initializeUI() {
   });
 }
 
-  // var pushButton = document.querySelector('.js-push-button');
-  // pushButton.addEventListener('click', subscribe);
-  //
-  // function subscribe() {
-  //   console.log('test1');
-  //   pushButton.disabled = true;
-  //
-  //   navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
-  //     console.log('test1.2');
-  //     console.log(serviceWorkerRegistration.pushManager.subscribe);
-  //     serviceWorkerRegistration.pushManager.subscribe({ userVisibleOnly: true })
-  //       .then(function(subscription) {
-  //         // The subscription was successful
-  //         console.log('test2');
-  //         isPushEnabled = true;
-  //         pushButton.textContent = 'Disable Push Messages';
-  //         pushButton.disabled = false;
-  //       })
-  //       .catch(function(e) {
-  //         console.log('test3');
-  //         if(Notification.permission === 'denied') {
-  //           console.warn('Permission for Notifications was denied');
-  //           pushButton.disabled = true;
-  //         } else {
-  //           console.error('Unable to subscribe to push.', e);
-  //           pushButton.disabled = false;
-  //           pushButton.textContent = 'Enable Push Messages';
-  //         }
-  //       });
-  //   });
-  // }
 
 })();
