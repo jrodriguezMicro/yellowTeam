@@ -265,6 +265,28 @@ input[type=search]:focus {
   text-indent: -4000px;
 }
 
+.btnOkDefi{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  color: #FFFFFF;
+  position: fixed;
+  cursor: pointer;
+  bottom: 0;
+  right: 0;
+  margin:25px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  justify-content: center;
+  display: flex;
+  background: center center no-repeat #E53357;
+  padding: 5%;
+  z-index: 3;
+  font-size: large;
+}
+
 .btnRetour{
   position: fixed;
   color: white;
@@ -389,4 +411,4 @@ input[type=search]:focus {
     a, a:active, a:focus,
     button {
     outline: none!important;
-    }    
+    }

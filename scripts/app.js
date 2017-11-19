@@ -9,6 +9,7 @@
   };
 
 
+  $('#btnOkDefi').hide();
 
 /*
 * Swipe for mobile interaction
@@ -67,6 +68,8 @@ $(".cartoSwap").on("touchstart", function(event){
 
   document.querySelector('.temp').addEventListener('click', function(){
     app.showMe('#defiDetail');
+    $('#btnAddChallenge').hide();
+    $('#btnOkDefi').show();
   });
 
   document.querySelector('.debug').addEventListener('click', function(){
@@ -100,6 +103,7 @@ $(".cartoSwap").on("touchstart", function(event){
    app.resetAllPage = function(){
      var container = $('.showMe');
      $('#btnAddChallenge').show();
+     $('#btnOkDefi').hide();
      container.removeClass('showMe').addClass('hideMe');
    }
    app.showMe = function(id){
