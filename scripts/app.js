@@ -9,6 +9,27 @@
   };
 
 
+
+/*
+* Swipe for mobile interaction
+*/
+
+$(".carousel").on("touchstart", function(event){
+        var xClick = event.originalEvent.touches[0].pageX;
+    $(this).one("touchmove", function(event){
+        var xMove = event.originalEvent.touches[0].pageX;
+        if( Math.floor(xClick - xMove) > 5 ){
+            $(this).carousel('next');
+        }
+        else if( Math.floor(xClick - xMove) < -5 ){
+            $(this).carousel('prev');
+        }
+    });
+    $(".carousel").on("touchend", function(){
+            $(this).off("touchmove");
+    });
+});
+
   /*****************************************************************************
    *
    * Event listeners for UI elements
@@ -156,7 +177,7 @@ function updateBtn() {
   if (Notification.permission === 'denied') {
     pushButton.textContent = 'Push Messaging Blocked.';
     pushButton.disabled = true;
-    updateSubscriptionOnServer(null);
+    // updateSubscriptionOnServer(null);
     return;
   }
 
@@ -171,6 +192,11 @@ function updateBtn() {
 
 function subscribeUser() {
   const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+  console.log('test1');
+  console.log(swRegistration.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: applicationServerKey
+  }));
   swRegistration.pushManager.subscribe({
     userVisibleOnly: true,
     applicationServerKey: applicationServerKey
@@ -178,7 +204,7 @@ function subscribeUser() {
   .then(function(subscription) {
     console.log('User is subscribed');
 
-    updateSubscriptionOnServer(subscription);
+    // updateSubscriptionOnServer(subscription);
 
     isSubscribed = true;
 
@@ -205,7 +231,7 @@ function initializeUI() {
   .then(function(subscription) {
     isSubscribed = !(subscription === null);
 
-    updateSubscriptionOnServer(subscription);
+    // updateSubscriptionOnServer(subscription);
 
     if (isSubscribed) {
       console.log('User IS subscribed.');
@@ -216,20 +242,7 @@ function initializeUI() {
     updateBtn();
   });
 }
-function updateSubscriptionOnServer(subscription) {
-  // TODO: Send subscription to application server
 
-  const subscriptionJson = document.querySelector('.js-subscription-json');
-  const subscriptionDetails =
-    document.querySelector('.js-subscription-details');
-
-  if (subscription) {
-    subscriptionJson.textContent = JSON.stringify(subscription);
-    subscriptionDetails.classList.remove('is-invisible');
-  } else {
-    subscriptionDetails.classList.add('is-invisible');
-  }
-}
   // var pushButton = document.querySelector('.js-push-button');
   // pushButton.addEventListener('click', subscribe);
   //
