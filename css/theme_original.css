@@ -187,6 +187,28 @@ input[type=search]:focus {
     width: 100% !important;
     height: 100% !important;
 }
+.swipeMap{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid #E53357;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  color: #FFFFFF;
+  position: fixed;
+  cursor: pointer;
+  bottom: 40%;
+  right: -25px;
+  margin:0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  justify-content: center;
+  display: flex;
+  background: url(/images/bg_btn_Gmaps.png) center left no-repeat #fecd1a;
+  padding: 5%;
+  z-index: 3;
+  text-indent: -4000px;
+}
+
 
 /* EOF CSS YELLOW TEAM */
 @-webkit-keyframes rotate {
@@ -389,4 +411,4 @@ input[type=search]:focus {
     a, a:active, a:focus,
     button {
     outline: none!important;
-    }    
+    }
