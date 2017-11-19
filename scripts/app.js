@@ -30,6 +30,31 @@ $(".carousel").on("touchstart", function(event){
     });
 });
 
+$(".homeSwap").on("touchstart", function(event){
+        var xClick = event.originalEvent.touches[0].pageX;
+    $(this).one("touchend", function(event){
+      var temp = Math.floor(xClick - event.originalEvent.changedTouches[0].pageX);
+      if( temp > 90 ){
+          app.showMe('#carto');
+      }
+      else if( temp < -90 ){
+          app.showMe('#carto');
+      }
+    });
+});
+
+$(".cartoSwap").on("touchstart", function(event){
+        var xClick = event.originalEvent.touches[0].pageX;
+    $(this).one("touchend", function(event){
+      var temp = Math.floor(xClick - event.originalEvent.changedTouches[0].pageX);
+      if( temp > 90 ){
+          app.showMe('#home');
+      }
+      else if( temp < -90 ){
+          app.showMe('#home');
+      }
+    });
+});
   /*****************************************************************************
    *
    * Event listeners for UI elements
