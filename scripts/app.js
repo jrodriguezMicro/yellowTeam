@@ -69,6 +69,9 @@ $(".cartoSwap").on("touchstart", function(event){
     app.showMe('#defiDetail');
   });
 
+  document.querySelector('.debug').addEventListener('click', function(){
+    app.showMe('#debug');
+  });
   $('.retourDetail').on('click', function(){
     app.showMe('#home');
   });
