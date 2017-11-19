@@ -29,6 +29,8 @@
 
   document.getElementById('btnAddChallenge').addEventListener('click', function(){
     app.showMe('#defiCreate');
+    $('#btnAddChallenge').hide();
+
   });
 
   document.getElementById('butProfil').addEventListener('click', function(){
@@ -48,6 +50,7 @@
 
    app.resetAllPage = function(){
      var container = $('.showMe');
+     $('#btnAddChallenge').show();
      container.removeClass('showMe').addClass('hideMe');
    }
    app.showMe = function(id){
